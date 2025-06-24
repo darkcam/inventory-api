@@ -19,7 +19,7 @@ class AuthController extends Controller
         if ($user && $user->role === 'admin' && $request->has('role')) {
             $role = $request->input('role');
             if (!in_array($role, ['admin', 'user'])) {
-                return response()->json(['message' => 'Invalid role'], 422);
+                return response()->json(['message' => 'Rol inválido'], 422);
             }
         }
 
@@ -34,7 +34,7 @@ class AuthController extends Controller
             'password' => Hash::make($validated['password']),
             'role' => $role,
         ]);
-        return response()->json(['message' => 'User registered successfully']);
+        return response()->json(['message' => 'Usuario registrado correctamente']);
     }
 
     // Login
@@ -43,9 +43,14 @@ class AuthController extends Controller
         $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
+        ],
+        [
+            'email.required' => 'El correo electrónico es obligatorio.',
+            'email.unique'   => 'El correo electrónico ya está en uso.',
+            'password.min'   => 'La contraseña debe tener mínimo 6 caracteres.'
         ]);
         if (!$token = auth('api')->attempt($credentials)) {
-            return response()->json(['message' => 'Invalid credentials'], 401);
+            return response()->json(['message' => 'Credenciales inválidas'], 401);
         }
         return response()->json([
             'access_token' => $token,
@@ -58,6 +63,6 @@ class AuthController extends Controller
     public function logout()
     {
         auth('api')->logout();
-        return response()->json(['message' => 'Logged out successfully']);
+        return response()->json(['message' => 'Sesión cerrada correctamente']);
     }
 }

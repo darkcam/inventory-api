@@ -17,7 +17,7 @@ class CategoryController extends Controller
     public function show($id)
     {
         $category = Category::find($id);
-        if (!$category) return response()->json(['message' => 'Category not found'], 404);
+        if (!$category) return response()->json(['message' => 'Categoría no encontrada'], 404);
         return $category;
     }
 
@@ -36,7 +36,7 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $category = Category::find($id);
-        if (!$category) return response()->json(['message' => 'Category not found'], 404);
+        if (!$category) return response()->json(['message' => 'Categoría no encontrada'], 404);
 
         $validated = $request->validate([
             'name' => 'sometimes|string|max:100',
@@ -50,8 +50,8 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
-        if (!$category) return response()->json(['message' => 'Category not found'], 404);
+        if (!$category) return response()->json(['message' => 'Categoría no encontrada'], 404);
         $category->delete();
-        return response()->json(['message' => 'Category deleted']);
+        return response()->json(['message' => 'Categoría eliminada correctamente']);
     }
 }

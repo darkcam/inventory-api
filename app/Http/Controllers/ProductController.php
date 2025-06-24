@@ -17,7 +17,7 @@ class ProductController extends Controller
      public function show($id)
      {
          $product = Product::with('category')->find($id);
-         if (!$product) return response()->json(['message' => 'Product not found'], 404);
+         if (!$product) return response()->json(['message' => 'Producto no encontrado'], 404);
          return $product;
      }
  
@@ -39,7 +39,7 @@ class ProductController extends Controller
      public function update(Request $request, $id)
      {
          $product = Product::find($id);
-         if (!$product) return response()->json(['message' => 'Product not found'], 404);
+         if (!$product) return response()->json(['message' => 'Producto no encontrado'], 404);
  
          $validated = $request->validate([
              'category_id' => 'sometimes|exists:categories,id',
@@ -56,8 +56,8 @@ class ProductController extends Controller
      public function destroy($id)
      {
          $product = Product::find($id);
-         if (!$product) return response()->json(['message' => 'Product not found'], 404);
+         if (!$product) return response()->json(['message' => 'Producto no encontrado'], 404);
          $product->delete();
-         return response()->json(['message' => 'Product deleted']);
+         return response()->json(['message' => 'Producto eliminado correctamente']);
      }
 }
