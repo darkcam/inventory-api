@@ -71,3 +71,43 @@ php artisan migrate:fresh --seed
 
 # 6. Inicia el servidor local
 php artisan serve
+
+- **URL base pública:**  
+  [https://inventory.taratasy.com](https://inventory.taratasy.com)
+
+---
+
+## 📦 Endpoints
+
+> Todos los endpoints requieren `Content-Type: application/json` y, salvo `/login` y `/register`, un JWT `Authorization: Bearer {token}`.
+
+### 🟢 **Autenticación y Usuarios**
+
+- **POST `/api/register`**  
+  Registra nuevo usuario.
+- **POST `/api/login`**  
+  Autenticación y obtención de token JWT.
+- **POST `/api/logout`**  
+  Cierra sesión (requiere autenticación).
+
+### 🟢 **Gestión de Productos**
+
+- **GET `/api/products`**  
+  Lista todos los productos.
+- **GET `/api/products/{id}`**  
+  Consulta detalle de un producto.
+- **POST `/api/products`** *(Solo Admin)*  
+  Crea un producto.
+- **PUT `/api/products/{id}`** *(Solo Admin)*  
+  Actualiza producto.
+- **DELETE `/api/products/{id}`** *(Solo Admin)*  
+  Elimina producto.
+
+### 🟢 **Gestión de Categorías** *(opcional)*
+
+- **GET `/api/categories`**
+- **POST `/api/categories`** *(Solo Admin)*
+- **PUT `/api/categories/{id}`** *(Solo Admin)*
+- **DELETE `/api/categories/{id}`** *(Solo Admin)*
+
+---
