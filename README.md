@@ -13,7 +13,7 @@
 
 ## 🚀 URL pública de la API
 
-> **[https://inventory-api.onrender.com](https://inventory-api.onrender.com)**  
+> **[https://inventory-api.onrender.com](https://inventory.taratasy.com)**  
 > (Reemplaza por la URL real tras el deploy)
 
 ---
@@ -31,6 +31,21 @@
 - [Autor y licencia](#autor-y-licencia)
 
 ---
+
+## 📂 Estructura del Proyecto
+
+- `app/Http/Controllers`: Controladores bien organizados
+- `app/Models`: Modelos Eloquent
+- `routes/api.php`: Definición de rutas limpias
+- Validación centralizada en controladores
+- Uso de comentarios claros en lógica compleja
+
+ ## 🏗️ Arquitectura
+
+- Patrón **MVC** (Model-View-Controller) de Laravel.
+- Separación clara de responsabilidades (Controladores, Modelos, Requests, Rutas).
+- Uso de Eloquent ORM para acceso a datos.
+- Middleware para autorización por roles.
 
 ## ✨ Características
 
@@ -72,8 +87,6 @@ php artisan migrate:fresh --seed
 # 6. Inicia el servidor local
 php artisan serve
 
-- **URL base pública:**  
-  [https://inventory.taratasy.com](https://inventory.taratasy.com)
 
 ---
 
