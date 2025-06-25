@@ -60,36 +60,6 @@
 - **Documentación clara para equipo o futuros desarrollos**
 
 ---
-
-## 💻 Instalación local
-
-> Sigue estos pasos para levantar el proyecto en tu máquina:
-
-```bash
-# 1. Clona el repositorio
-git clone https://github.com/tuusuario/inventory-api.git
-cd inventory-api
-
-# 2. Instala dependencias
-composer install
-
-# 3. Copia el archivo de entorno y ajústalo
-cp .env.example .env
-# Edita .env y configura DB, APP_URL, etc.
-
-# 4. Genera APP_KEY y JWT_SECRET
-php artisan key:generate
-php artisan jwt:secret
-
-# 5. Migra y carga los seeders
-php artisan migrate:fresh --seed
-
-# 6. Inicia el servidor local
-php artisan serve
-
-
----
-
 ## 📦 Endpoints
 
 > Todos los endpoints requieren `Content-Type: application/json` y, salvo `/login` y `/register`, un JWT `Authorization: Bearer {token}`.
@@ -120,6 +90,34 @@ php artisan serve
 
 - **GET `/api/categories`**
 - **POST `/api/categories`** *(Solo Admin)*
+
+## 💻 Instalación local
+
+> Sigue estos pasos para levantar el proyecto en tu máquina:
+
+```bash
+# 1. Clona el repositorio
+git clone https://github.com/tuusuario/inventory-api.git
+cd inventory-api
+
+# 2. Instala dependencias
+composer install
+
+# 3. Copia el archivo de entorno y ajústalo
+cp .env.example .env
+# Edita .env y configura DB, APP_URL, etc.
+
+# 4. Genera APP_KEY y JWT_SECRET
+php artisan key:generate
+php artisan jwt:secret
+
+# 5. Migra y carga los seeders
+php artisan migrate:fresh --seed
+
+# 6. Inicia el servidor local
+php artisan serve
+
+---
 - **PUT `/api/categories/{id}`** *(Solo Admin)*
 - **DELETE `/api/categories/{id}`** *(Solo Admin)*
 
