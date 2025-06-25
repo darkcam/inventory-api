@@ -61,7 +61,7 @@
 
 ---
 ## 📦 Endpoints
-
+```bash
 > Todos los endpoints requieren `Content-Type: application/json` y, salvo `/login` y `/register`, un JWT `Authorization: Bearer {token}`.
 
 ### 🟢 **Autenticación y Usuarios**
@@ -90,6 +90,11 @@
 
 - **GET `/api/categories`**
 - **POST `/api/categories`** *(Solo Admin)*
+- ---
+- **PUT `/api/categories/{id}`** *(Solo Admin)*
+- **DELETE `/api/categories/{id}`** *(Solo Admin)*
+
+---
 
 ## 💻 Instalación local
 
@@ -117,8 +122,3 @@ php artisan migrate:fresh --seed
 # 6. Inicia el servidor local
 php artisan serve
 
----
-- **PUT `/api/categories/{id}`** *(Solo Admin)*
-- **DELETE `/api/categories/{id}`** *(Solo Admin)*
-
----
